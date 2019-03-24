@@ -9,7 +9,7 @@ const model = {
   add (input, cb) {
     conn.query('INSERT INTO Fitness_Food_List (food_id,food_portion,item_calorie_amount,food_namecreated_at) VALUES (?)',
       [
-        [input.food_id, input.food_portion, input.item_calorie_amount,food_name, new Date()]
+        [input.food_id, input.food_portion, input.item_calorie_amount, input.food_name, new Date()]
       ],
       (err, data) => {
         if (err) {
