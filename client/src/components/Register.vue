@@ -20,7 +20,7 @@
           <v-text-field
             label="Weight"
             type="text"
-            v-model="weight"
+            v-model="Weight"
           ></v-text-field>
           <br>
           <v-text-field
@@ -63,6 +63,10 @@ export default {
     return {
       email: '',
       password: '',
+      LastName: '',
+      FirstName: '',
+      Weight: '',
+      Height: '',
       error: null
     }
   },
@@ -71,7 +75,11 @@ export default {
       try {
         const response = await AuthenticationService.register({
           email: this.email,
-          password: this.password
+          password: this.password,
+          FirstName: this.FirstName,
+          LastName: this.LastName,
+          Weight: this.Weight,
+          Height: this.Height
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
