@@ -1,19 +1,42 @@
-const conn = require('./mysql_connection.js')
+const Promise = require('bluebird')
+const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
-const model = {
-  add (input, cb) {
-    conn.query('INSERT INTO user (firstname,lastname,email,user_pass) VALUES (?,?,?,?)',
-      [[input.email, input.F_name, input.L_name, input.password]],
-      (err, data) => {
-        cb(err, data)
-      }
-    )
-  },
-  getAll (cb) {
-    conn.query('show tables', (err, data) => {
-      cb(err, data)
-    })
+function hashPassword (user, options) {
+  const SALT_FACTOR = 8
+
+  if (!user.changed('password')) {
+    return
   }
+
+  return bcrypt
+    .genSaltAsync(SALT_FACTOR)
+    .then(salt => bcrypt.hashAsync(user.password, salt, null))
+    .then(hash => {
+      user.setDataValue('password', hash)
+    })
 }
 
-module.exports = model
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    email: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    password: DataTypes.STRING
+  }, {
+    hooks: {
+      beforeCreate: hashPassword,
+      beforeUpdate: hashPassword,
+      beforeSave: hashPassword
+    }
+  })
+
+  User.prototype.comparePassword = function (password) {
+    return bcrypt.compare(password, this.password)
+  }
+
+  User.associate = function (models) {
+  }
+
+  return User
+}

@@ -1,4 +1,4 @@
-const {User} = require('../models')
+const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
 
@@ -26,7 +26,7 @@ module.exports = {
   },
   async login (req, res) {
     try {
-      const {email, password} = req.body
+      const { email, password } = req.body
       const user = await User.findOne({
         where: {
           email: email
@@ -35,14 +35,16 @@ module.exports = {
 
       if (!user) {
         return res.status(403).send({
-          error: 'The login information was incorrect'
+          error: 'Invalid User'
         })
       }
 
       const isPasswordValid = await user.comparePassword(password)
+      console.log(password, user.password)
+      // console.log(isPasswordValid)
       if (!isPasswordValid) {
         return res.status(403).send({
-          error: 'The login information was incorrect'
+          error: 'Incorrect password'
         })
       }
 
@@ -53,7 +55,7 @@ module.exports = {
       })
     } catch (err) {
       res.status(500).send({
-        error: 'An error has occured trying to log in'
+        error: 'An error has occured'
       })
     }
   }
