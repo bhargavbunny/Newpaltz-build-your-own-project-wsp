@@ -13,8 +13,8 @@
 <script>
 export default {
     data: ()=> ({
-      name: "bunny",
-      age: 24
+      name: "Moshe",
+      age: 42
     })
 }
 </script>

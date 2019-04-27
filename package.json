@@ -1,5 +1,5 @@
 {
-  "name": "2019fitnesstracker",
+  "name": "2019springinclass",
   "version": "1.1.0",
   "private": true,
   "scripts": {
@@ -8,28 +8,34 @@
     "lint": "vue-cli-service lint",
     "start": "nodemon server/index.js --watch server"
   },
-  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jewpaltz/2019SpringInClass.git"
+  },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.4",
     "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.16.0",
+    "toastr": "^2.1.4",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-service": "^3.5.3",
+    "@vue/cli-service": "^3.4.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",
-    "nodemon": "^1.18.10",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "nodemon": "^1.18.10"
   },
   "eslintConfig": {
     "root": true,
