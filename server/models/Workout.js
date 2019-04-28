@@ -7,28 +7,25 @@ const JWT_SECRET = process.env.JWT_SECRET || 'some long string..';
 
 const model = {
     async getAll(){
-        return await conn.query("SELECT * FROM Fitness_Workouts");   
+        return await conn.query("SELECT * FROM tbl_slept_time");   
     },
     async getWorkout(id){
-        const data = await conn.query("SELECT * FROM 2019_Workouts WHERE Id=?", id);
+        const data = await conn.query("SELECT * FROM tbl_slept_time WHERE Id=?", id);
         if(!data){
             throw Error("Workout not found");
         }
         return data[0];
     },
     async getID(input) {
-        const data = await conn.query("SELECT ID FROM 2019_Workouts WHERE name=?", input.name);
+        const data = await conn.query("SELECT ID FROM tbl_slept_time WHERE name=?", input.name);
         if(!data) {
             throw Error('Workout not added.')
         }
         return data;
     },
     async addWorkout(input){
-        const data = await conn.query(
-            `INSERT INTO 2019_Workouts W Join 2019_Users_Workouts UW On W.ID = UW.WORKOUT_ID 
-            Join Fitness_Users U On UW.USER_ID = U.ID 
-            (name,date_time,calories_burned,workout_minutes,created_at) WHERE U.VALUE=`, email, 
-            [[input.name, input.date_time, input.calories_burned, input.workout_minutes, new Date()]]
+        const data = await conn.query(`'INSERT into tbl_slept_time,,` 
+            [[ input.time]]
         );
         return await model.get(data.insertId);
     },
