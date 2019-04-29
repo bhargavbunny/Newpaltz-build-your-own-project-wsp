@@ -47,7 +47,7 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next)=>{
+/*router.beforeEach((to, from, next)=>{
     console.log({ to, from });
     const publicRoutes = ['home', 'login', 'register'];
     if(!publicRoutes.includes( to.name ) && !Globals.user){
@@ -55,6 +55,6 @@ router.beforeEach((to, from, next)=>{
         return next('login');
     }
     next();
-})
+})*/
 
 export default router;
