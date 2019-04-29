@@ -4,6 +4,11 @@ import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
+import MyExercises from './views/MyExercises.vue';
+import MyWorkouts from './views/MyWorkouts.vue';
+//import AddFood from './views/AddFood.vue';
+import AddFoodLog from './views/AddFoodLog.vue';
+import AddWorkout from './views/AddWorkout.vue';
 import { Globals } from '@/models/api';
 
 Vue.use(Router)
@@ -35,6 +40,28 @@ const router = new Router({
       path: '/Login',
       name: 'login',
       component: Login
+    },
+    //{
+    //  path: '/AddFood',
+    //  name: 'AddFood',
+    //  component: AddFood
+    //},
+    {
+      path: '/AddFoodLog',
+      name: 'AddFoodLog',
+      component: AddFoodLog
+    },{
+      path: '/AddWorkout',
+      name: 'AddWorkout',
+      component: AddWorkout
+    },{
+      path: '/MyExercises',
+      name: 'MyExercises',
+      component: MyExercises
+    },{
+      path: '/MyWorkouts',
+      name: 'MyWorkouts',
+      component: MyWorkouts
     },
     {
       path: '/about',

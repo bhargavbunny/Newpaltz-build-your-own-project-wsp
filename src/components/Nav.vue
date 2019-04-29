@@ -1,4 +1,5 @@
 <template>
+
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <router-link class="navbar-brand" to="/" >
             <img alt="Vue logo" src="../assets/logo.png" height="30">
@@ -15,10 +16,10 @@
                     <router-link class="nav-link" to="/About" active-class="active">About</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/MyFriends">My Friends</router-link>
+                    <router-link class="nav-link" to="/MyFriends">DashBoard</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link disabled" to="#"  active-class="active">Disabled</router-link>
+                    <router-link class="nav-link" to="/MyFriends">Menu</router-link>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
