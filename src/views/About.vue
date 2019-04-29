@@ -1,5 +1,5 @@
 <style>
-    #heading { color: #800080; }
+    #heading { color: #260080; }
   </style>
 
 <template>

@@ -7,6 +7,9 @@ const SALT_ROUNDS = 8;
 const JWT_SECRET = process.env.JWT_SECRET || 'some long string..';
 
 const model = {
+    async getAll(){
+        return await conn.query("SELECT * FROM 2019user_sleeptime");   
+    },
     async addsleep(input){
         const data = await conn.query(
             "INSERT INTO 2019user_sleeptime (sleept_time) VALUES (?)",

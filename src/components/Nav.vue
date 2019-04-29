@@ -22,6 +22,7 @@
                     <router-link class="nav-link" to="/MyFriends">Menu</router-link>
                 </li>
             </ul>
+
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
                 <router-link to="/Login" class="nav-link">Login</router-link>
                 <router-link to="/Register" class="nav-link">Sign Up</router-link>
