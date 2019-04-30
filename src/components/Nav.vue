@@ -16,7 +16,7 @@
                     <router-link class="nav-link" to="/About" active-class="active">About</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/MyFriends">DashBoard</router-link>
+                    <router-link class="nav-link" to="/dashboard">DashBoard</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends">Menu</router-link>

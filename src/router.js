@@ -9,6 +9,9 @@ import MyWorkouts from './views/MyWorkouts.vue';
 //import AddFood from './views/AddFood.vue';
 import AddFoodLog from './views/AddFoodLog.vue';
 import AddWorkout from './views/AddWorkout.vue';
+import dashboard from './views/dashboard.vue';
+import user_profile from './views/user_profile'
+import sleep_time from './views/sleep_time'
 import { Globals } from '@/models/api';
 
 Vue.use(Router)
@@ -32,6 +35,16 @@ const router = new Router({
       component: MyFriends
     },
     {
+      path: '/sleep_time',
+      name: 'sleep_time',
+      component: sleep_time
+    },
+    {
+      path: '/user_profile',
+      name: 'user_profile',
+      component: user_profile
+    },
+    {
       path: '/Register',
       name: 'register',
       component: Register
@@ -40,6 +53,11 @@ const router = new Router({
       path: '/Login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard
     },
     //{
     //  path: '/AddFood',
