@@ -12,8 +12,8 @@ const model = {
     },
     async addsleep(input){
         const data = await conn.query(
-            "INSERT INTO 2019user_sleeptime (sleept_time) VALUES (?)",
-            [[input.sleep_time]]
+            "INSERT INTO 2019user_sleeptime (date) VALUES (?)",
+            [[input.date]]
         );
         return await model.get(data.insertId);
     },

@@ -12,6 +12,7 @@ import AddWorkout from './views/AddWorkout.vue';
 import dashboard from './views/dashboard.vue';
 import user_profile from './views/user_profile'
 import sleep_time from './views/sleep_time'
+import updateprofile from './views/updateprofile'
 import { Globals } from '@/models/api';
 
 Vue.use(Router)
@@ -33,6 +34,11 @@ const router = new Router({
       path: '/MyFriends',
       name: 'my-friends',
       component: MyFriends
+    },
+    {
+      path: '/updateprofile',
+      name: 'updateprofile',
+      component: updateprofile
     },
     {
       path: '/sleep_time',

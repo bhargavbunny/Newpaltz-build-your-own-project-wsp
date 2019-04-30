@@ -8,3 +8,7 @@ export async function updatesleep(data) {
     const x = await api('sleep_time', data);
     return x;
   }
+  export async function getall() {
+    const x = await api('sleep_time');
+    return x;
+  }

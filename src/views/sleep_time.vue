@@ -1,54 +1,81 @@
 <template>
-   <div class="row">
-    <div class="col-lg-12">
-      <div class="card text-center">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
         <div class="card-header text-white bg-dark">
           <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
-            <router-link class="nav-link active" to="/MyExercises"> My Exercises</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/AddExercise">Add an Exercise</router-link>
+            <router-link class="nav-link" to="/sleep_time">My sleep time</router-link>
           </li>
         </ul>
-        <div>
-          <h1> My Exercises</h1>
-              <table class="table table-bordered">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Body Focus</th>
-                <th scope="col">Reps</th>
-                <th scope="col">Sets</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr v-for="Exercise in Exercises" :key="Exercise.ID">
-                  <th scope="row">{{Exercise.Exercisename}}</th>
-                   <td>{{Exercise.defaultbody_focus}}</td>
-                  <td>{{Exercise.defaultreps}}</td>
-                  <td>{{Exercise.defaultsets}}</td>
-                </tr>
-            </tbody>
-          </table>
-          </div>
         </div>
-    </div>
-  </div>
-</div>
-</template>
+        <div class="container">
+            <form @submit.prevent="submit">
+              <br>
 
+              <div class="form-group row">
+                <label for="Date" class="col-3 col-form-label">Date</label>
+                <div class="col-9">
+                <input type="date" v-model="data.date"
+                    class="form-control"
+                    name="date"
+                    id="date"
+                    aria-describedby="helpDate"
+                    placeholder="Date"
+                    required>
+                  <small id="helpDate" class="form-text text-muted">Add the date for your sleep time.</small>
+                </div>
+                </div>
+
+            <div class="form-group row">
+          <label for="daily_foods" class="col-3 col-form-label">Food Items</label>
+          <div class="col-9">
+          <input type="text" v-model="data.sleep_time"
+                    class="form-control"
+                    name="daily_foods"
+                    id="daily_foods"
+                    aria-describedby="helpdaily_foods"
+                    placeholder="daily_foods"
+                    required>
+                  <small id="helpdaily_foods" class="form-text text-muted">Night or day</small>
+          </div>
+          </div>
+          <br>
+
+         <div class="form-group row">
+          <div class="offset-3 col-9">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </div>
+          </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          
+
+</template>
 
 <script>
 import { Globals } from '@/models/api';
-import { getExercise } from '@/models/Exercises.js';
+import { getsleep_time } from '@/models/sleep_time.js';
+import toastr from 'toastr';
 export default {
   data: () => ({
     Globals: Globals,
-    Exercises: [],
+    sleep_time: [],
   }),
-  async mounted() {
-    this.Exercises = await getExercise();
+   methods: {
+    async submit() {
+      try {
+        const m = await addsleep(this.data);
+        this.newsleep_time = m;
+        toastr.success("You've Successfully added your sleep time");
+      } catch (error) {
+        Globals.errors.push(error);
+        toastr.error(error.message);
+      }
+    },
   },
 };
 </script>
