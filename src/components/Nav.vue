@@ -18,9 +18,6 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/dashboard">DashBoard</router-link>
                 </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/MyFriends">Menu</router-link>
-                </li>
             </ul>
 
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
