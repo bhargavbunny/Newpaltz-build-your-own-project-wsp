@@ -98,7 +98,7 @@ const router = new Router({
     }
   ]
 })
-/*
+
 router.beforeEach((to, from, next)=>{
     console.log({ to, from });
     const publicRoutes = ['home', 'about' ,'login', 'register'];
@@ -108,5 +108,5 @@ router.beforeEach((to, from, next)=>{
     }
     next();
 })
-*/
+
 export default router;
