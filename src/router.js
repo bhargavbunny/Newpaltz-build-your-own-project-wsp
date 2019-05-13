@@ -6,7 +6,6 @@ import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import MyExercises from './views/MyExercises.vue';
 import MyWorkouts from './views/MyWorkouts.vue';
-//import AddFood from './views/AddFood.vue';
 import AddFoodLog from './views/AddFoodLog.vue';
 import AddWorkout from './views/AddWorkout.vue';
 import dashboard from './views/dashboard.vue';
@@ -66,11 +65,6 @@ const router = new Router({
       name: 'dashboard',
       component: dashboard
     },
-    //{
-    //  path: '/AddFood',
-    //  name: 'AddFood',
-    //  component: AddFood
-    //},
     {
       path: '/AddFoodLog',
       name: 'AddFoodLog',

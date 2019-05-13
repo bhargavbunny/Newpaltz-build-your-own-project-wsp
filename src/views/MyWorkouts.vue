@@ -39,7 +39,7 @@
 
 <script>
 import { Globals } from '@/models/api';
-import { getRoutine } from '@/models/Workouts.js';
+import { getWorkout } from '@/models/Workouts.js';
 export default {
   data: () => ({
     Globals: Globals,

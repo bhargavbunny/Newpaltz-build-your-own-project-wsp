@@ -23,6 +23,8 @@
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
                 <router-link to="/Login" class="nav-link">Login</router-link>
                 <router-link to="/Register" class="nav-link">Sign Up</router-link>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <span class="navbar-text" v-if="Globals.user">
                 <img width="30" :src="`https://graph.facebook.com/${Globals.oAuthUser.id}/picture`" />
