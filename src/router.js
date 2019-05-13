@@ -13,6 +13,7 @@ import dashboard from './views/dashboard.vue';
 import user_profile from './views/user_profile'
 import sleep_time from './views/sleep_time'
 import updateprofile from './views/updateprofile'
+import AddExercise from './views/AddExercise'
 import { Globals } from '@/models/api';
 
 Vue.use(Router)
@@ -83,6 +84,12 @@ const router = new Router({
       name: 'MyExercises',
       component: MyExercises
     },{
+      path: '/AddExercise',
+      name: 'AddExercise',
+      component: AddExercise
+    },
+    
+    {
       path: '/MyWorkouts',
       name: 'MyWorkouts',
       component: MyWorkouts
@@ -97,7 +104,7 @@ const router = new Router({
     }
   ]
 })
-
+/*
 router.beforeEach((to, from, next)=>{
     console.log({ to, from });
     const publicRoutes = ['home', 'about' ,'login', 'register'];
@@ -107,5 +114,5 @@ router.beforeEach((to, from, next)=>{
     }
     next();
 })
-
+*/
 export default router;

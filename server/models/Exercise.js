@@ -27,8 +27,8 @@ const model = {
         const data = await conn.query(
             `INSERT INTO 2019_Exercizes E Join 2019_Users_Exercizes UE On E.ID = UE.EXERCIZE_ID 
             Join 2019_Users U On UE.USER_ID = U.ID 
-            (name,body_focus,reps,sets,date_created,date_updated) WHERE U.VALUE=`, email, 
-            [[input.name, input.body_focus, input.reps, input.sets, input.date_created, new Date()]]
+            (name,body_focus,pullups,pushups,walkingdistance,date_created,date_updated) WHERE U.VALUE=`, email, 
+            [[input.name, input.body_focus, input.pullups, input.pushups, input.walkingdistance , input.date_created, new Date()]]
         );
         return await model.get(data.insertId);
     },

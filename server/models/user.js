@@ -26,19 +26,19 @@ const model = {
         }
         const hashedPassword = await bcrypt.hash(input.Password, SALT_ROUNDS)
         const data = await conn.query(
-            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,created_at) VALUES (?)",
-            [[input.FirstName, input.LastName, input.Birthday, hashedPassword, new Date()]] 
+            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Email,Password,Birthday,created_at,updated_at) VALUES (?)",
+            [[input.FirstName, input.LastName,input.Email, hashedPassword, input.Birthday, new Date(),new Date()]] 
         );
         return await model.get(data.insertId);
     },
     getFromToken(token){
         return jwt.verify(token, JWT_SECRET);
     },
-    async login(email, password){
+    async login(Email, password){
         //console.log({ email, password })
         const data = await conn.query(`SELECT * FROM 2019Spring_Persons P
-                        Join 2019Spring_ContactMethods CM On CM.Person_Id = P.id
-                    WHERE CM.Value=?`, email);
+                        Join 2019Spring_ContactMethods CM On CM.id = P.id
+                    WHERE CM.Value=?`, Email);
         if(data.length == 0){
             throw Error('User Not Found');
         }
@@ -54,7 +54,7 @@ const model = {
         const fbMe = await axios.get(`https://graph.facebook.com/me?fields=id,name,email&access_token=${token}`);
         console.log({fbMe});
         const data = await conn.query(`SELECT * FROM 2019Spring_Persons P
-                        Join 2019Spring_ContactMethods CM On CM.Person_Id = P.id
+                        Join 2019Spring_ContactMethods CM On CM.id = P.id
                     WHERE CM.Type = 'Facebook' AND CM.Value=?`, fbMe.data.id);
         if(data.length == 0){
             throw Error('User Not Found');

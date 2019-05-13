@@ -32,6 +32,12 @@
                   <small id="helpLastName" class="form-text text-muted">Sir Name</small>
                 </div>
                 <div class="form-group">
+                  <label for="Email">Email</label>
+                  <input type="text" v-model="data.Email"
+                    class="form-control" name="Email" id="Email" aria-describedby="helpLastEmail" placeholder="Email">
+                  <small id="helpEmail" class="form-text text-muted">Email</small>
+                </div>
+                <div class="form-group">
                   <label for="Password">Password</label>
                   <input type="password" v-model="data.Password"
                     class="form-control" name="Password" id="Password" placeholder="Password">

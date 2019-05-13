@@ -5,9 +5,6 @@
         <div class="card-header text-white bg-dark">
           <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
-            <router-link class="nav-link" to="/MyDailyFoods">My Food Log</router-link>
-          </li>
-          <li class="nav-item">
             <router-link class="nav-link active" to="/AddFoodLog">Add a Food Log</router-link>
           </li>
         </ul>
